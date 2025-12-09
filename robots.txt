@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://fastdowner.net/sitemap.xml

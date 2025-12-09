@@ -1,18 +1,29 @@
-import LandingLayout from "../../../components/LandingLayout";
-import DownloaderForm from "../../../components/DownloaderForm";
+import generateSEOPro from "@/lib/seo_pro";
+import LandingLayout from "@/components/LandingLayout";
+import DownloaderForm from "@/components/DownloaderForm";
+import SchemaInjectorPro from "@/components/SchemaInjectorPro";
+import { VideoObject } from "@/lib/videoObject";
 
-export const metadata = {
-  title: "Twitter / X Video Downloader – Fastdowner",
-  description: "Twitter / X Video Downloader – Download in seconds for free with Fastdowner.",
-};
+export const metadata = generateSEOPro({
+  title: "Twitter Video Download EN",
+  description: "Download twitter video download (EN)",
+  keywords: "twitter video download",
+  url: "/en/twitter-video-download"
+});
 
 export default function Page() {
+  const schema = VideoObject({
+    title: "Twitter Video Download EN",
+    description: "Download twitter video download (EN)",
+    url: "https://fastdowner.net"
+  });
+
   return (
-    <LandingLayout
-      title="Twitter / X Video Downloader"
-      description="Twitter / X Video Downloader – Download in seconds for free with Fastdowner."
-    >
-      <DownloaderForm />
-    </LandingLayout>
+    <>
+      <SchemaInjectorPro data={schema} />
+      <LandingLayout>
+        <DownloaderForm />
+      </LandingLayout>
+    </>
   );
 }

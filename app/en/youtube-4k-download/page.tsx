@@ -1,18 +1,29 @@
-import LandingLayout from "../../../components/LandingLayout";
-import DownloaderForm from "../../../components/DownloaderForm";
+import generateSEOPro from "@/lib/seo_pro";
+import LandingLayout from "@/components/LandingLayout";
+import DownloaderForm from "@/components/DownloaderForm";
+import SchemaInjectorPro from "@/components/SchemaInjectorPro";
+import { VideoObject } from "@/lib/videoObject";
 
-export const metadata = {
-  title: "YouTube 4K Downloader – Fastdowner",
-  description: "YouTube 4K Downloader – Download in seconds for free with Fastdowner.",
-};
+export const metadata = generateSEOPro({
+  title: "Youtube 4K Download EN",
+  description: "Download youtube 4k download (EN)",
+  keywords: "youtube 4k download",
+  url: "/en/youtube-4k-download"
+});
 
 export default function Page() {
+  const schema = VideoObject({
+    title: "Youtube 4K Download EN",
+    description: "Download youtube 4k download (EN)",
+    url: "https://fastdowner.net"
+  });
+
   return (
-    <LandingLayout
-      title="YouTube 4K Downloader"
-      description="YouTube 4K Downloader – Download in seconds for free with Fastdowner."
-    >
-      <DownloaderForm />
-    </LandingLayout>
+    <>
+      <SchemaInjectorPro data={schema} />
+      <LandingLayout>
+        <DownloaderForm />
+      </LandingLayout>
+    </>
   );
 }

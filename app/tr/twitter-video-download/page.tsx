@@ -1,25 +1,29 @@
-import LandingLayout from "../../../components/LandingLayout";
-import DownloaderForm from "../../../components/DownloaderForm";
-import FAQ from "../../../components/FAQ";
-import SchemaInjector from "../../../components/SchemaInjector";
-import { generateSEO } from "../../../lib/seo-generator/generate";
+import generateSEOPro from "@/lib/seo_pro";
+import LandingLayout from "@/components/LandingLayout";
+import DownloaderForm from "@/components/DownloaderForm";
+import SchemaInjectorPro from "@/components/SchemaInjectorPro";
+import { VideoObject } from "@/lib/videoObject";
 
-const slugId = "twitter-video-download";
-const lang = "tr" as const;
-
-const pack = generateSEO(slugId, lang);
-
-export const metadata = {
-  title: pack.seo.title,
-  description: pack.seo.description,
-};
+export const metadata = generateSEOPro({
+  title: "Twitter Video Download TR",
+  description: "Download twitter video download (TR)",
+  keywords: "twitter video download",
+  url: "/tr/twitter-video-download"
+});
 
 export default function Page() {
+  const schema = VideoObject({
+    title: "Twitter Video Download TR",
+    description: "Download twitter video download (TR)",
+    url: "https://fastdowner.net"
+  });
+
   return (
-    <LandingLayout title={pack.seo.h1} description={pack.seo.description}>
-      <DownloaderForm />
-      <FAQ items={pack.faq} />
-      <SchemaInjector jsonld={pack.schema} />
-    </LandingLayout>
+    <>
+      <SchemaInjectorPro data={schema} />
+      <LandingLayout>
+        <DownloaderForm />
+      </LandingLayout>
+    </>
   );
 }

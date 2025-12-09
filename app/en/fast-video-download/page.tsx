@@ -1,18 +1,29 @@
-import LandingLayout from "../../../components/LandingLayout";
-import DownloaderForm from "../../../components/DownloaderForm";
+import generateSEOPro from "@/lib/seo_pro";
+import LandingLayout from "@/components/LandingLayout";
+import DownloaderForm from "@/components/DownloaderForm";
+import SchemaInjectorPro from "@/components/SchemaInjectorPro";
+import { VideoObject } from "@/lib/videoObject";
 
-export const metadata = {
-  title: "Fast Video Downloader – Fastdowner",
-  description: "Fast Video Downloader – Download in seconds for free with Fastdowner.",
-};
+export const metadata = generateSEOPro({
+  title: "Fast Video Download EN",
+  description: "Download fast video download (EN)",
+  keywords: "fast video download",
+  url: "/en/fast-video-download"
+});
 
 export default function Page() {
+  const schema = VideoObject({
+    title: "Fast Video Download EN",
+    description: "Download fast video download (EN)",
+    url: "https://fastdowner.net"
+  });
+
   return (
-    <LandingLayout
-      title="Fast Video Downloader"
-      description="Fast Video Downloader – Download in seconds for free with Fastdowner."
-    >
-      <DownloaderForm />
-    </LandingLayout>
+    <>
+      <SchemaInjectorPro data={schema} />
+      <LandingLayout>
+        <DownloaderForm />
+      </LandingLayout>
+    </>
   );
 }

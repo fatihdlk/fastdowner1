@@ -1,18 +1,29 @@
-import LandingLayout from "../../../components/LandingLayout";
-import DownloaderForm from "../../../components/DownloaderForm";
+import generateSEOPro from "@/lib/seo_pro";
+import LandingLayout from "@/components/LandingLayout";
+import DownloaderForm from "@/components/DownloaderForm";
+import SchemaInjectorPro from "@/components/SchemaInjectorPro";
+import { VideoObject } from "@/lib/videoObject";
 
-export const metadata = {
-  title: "Instagram Video Downloader – Fastdowner",
-  description: "Instagram Video Downloader – Download in seconds for free with Fastdowner.",
-};
+export const metadata = generateSEOPro({
+  title: "Instagram Video Download EN",
+  description: "Download instagram video download (EN)",
+  keywords: "instagram video download",
+  url: "/en/instagram-video-download"
+});
 
 export default function Page() {
+  const schema = VideoObject({
+    title: "Instagram Video Download EN",
+    description: "Download instagram video download (EN)",
+    url: "https://fastdowner.net"
+  });
+
   return (
-    <LandingLayout
-      title="Instagram Video Downloader"
-      description="Instagram Video Downloader – Download in seconds for free with Fastdowner."
-    >
-      <DownloaderForm />
-    </LandingLayout>
+    <>
+      <SchemaInjectorPro data={schema} />
+      <LandingLayout>
+        <DownloaderForm />
+      </LandingLayout>
+    </>
   );
 }

@@ -1,18 +1,29 @@
-import LandingLayout from "../../../components/LandingLayout";
-import DownloaderForm from "../../../components/DownloaderForm";
+import generateSEOPro from "@/lib/seo_pro";
+import LandingLayout from "@/components/LandingLayout";
+import DownloaderForm from "@/components/DownloaderForm";
+import SchemaInjectorPro from "@/components/SchemaInjectorPro";
+import { VideoObject } from "@/lib/videoObject";
 
-export const metadata = {
-  title: "YouTube Playlist Downloader – Fastdowner",
-  description: "YouTube Playlist Downloader – Download in seconds for free with Fastdowner.",
-};
+export const metadata = generateSEOPro({
+  title: "Youtube Playlist Download EN",
+  description: "Download youtube playlist download (EN)",
+  keywords: "youtube playlist download",
+  url: "/en/youtube-playlist-download"
+});
 
 export default function Page() {
+  const schema = VideoObject({
+    title: "Youtube Playlist Download EN",
+    description: "Download youtube playlist download (EN)",
+    url: "https://fastdowner.net"
+  });
+
   return (
-    <LandingLayout
-      title="YouTube Playlist Downloader"
-      description="YouTube Playlist Downloader – Download in seconds for free with Fastdowner."
-    >
-      <DownloaderForm />
-    </LandingLayout>
+    <>
+      <SchemaInjectorPro data={schema} />
+      <LandingLayout>
+        <DownloaderForm />
+      </LandingLayout>
+    </>
   );
 }

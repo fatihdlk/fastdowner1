@@ -1,25 +1,17 @@
-import LandingLayout from "../../components/LandingLayout";
-import DownloaderForm from "../../components/DownloaderForm";
-import FAQ from "../../components/FAQ";
-import SchemaInjector from "../../components/SchemaInjector";
-import { generateSEO } from "../../lib/seo-generator/generate";
+import generateSEO from "@/lib/seo";
+import LandingLayout from "@/components/LandingLayout";
+import DownloaderForm from "@/components/DownloaderForm";
 
-const slugId = "instagram-igtv-download";
-const lang = "en" as const;
-
-const pack = generateSEO(slugId, lang);
-
-export const metadata = {
-  title: pack.seo.title,
-  description: pack.seo.description,
-};
+export const metadata = generateSEO({
+  title: "Instagram Igtv Download",
+  description: "Auto generated page",
+  keywords: "instagram igtv download",
+});
 
 export default function Page() {
   return (
-    <LandingLayout title={pack.seo.h1} description={pack.seo.description}>
+    <LandingLayout>
       <DownloaderForm />
-      <FAQ items={pack.faq} />
-      <SchemaInjector jsonld={pack.schema} />
     </LandingLayout>
   );
 }
