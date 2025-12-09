@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-slate-950 text-slate-50 min-h-screen antialiased;
+}
+
+.input-oval {
+  @apply w-full rounded-pill border border-slate-800 bg-slate-900/80 px-5 py-3 text-sm 
+         text-slate-100 shadow-soft outline-none transition
+         focus-visible:ring-2 focus-visible:ring-brand focus-visible:border-brand;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center rounded-pill bg-brand px-6 py-3 text-sm font-semibold 
+         text-slate-950 shadow-soft transition hover:bg-brand-dark;
+}

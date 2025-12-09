@@ -1,0 +1,20 @@
+export const platformSlugs=[
+"youtube-video-download",
+"youtube-mp3-download",
+"youtube-shorts-download",
+"tiktok-video-download",
+"instagram-video-download",
+"instagram-reels-download",
+"instagram-stories-download",
+"instagram-photo-download",
+"instagram-igtv-download",
+"facebook-video-download",
+"twitter-video-download",
+"reddit-video-download",
+"pinterest-video-download",
+"snapchat-video-download",
+"mp3-converter",
+"mp4-downloader",
+"online-video-downloader",
+"free-video-downloader"
+];
